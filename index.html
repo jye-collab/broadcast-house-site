@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Broadcast House — Get Paid To Clip</title>
+<meta name="description" content="Broadcast House turns long-form content into viral short-form. We're recruiting editors to clip for real brands and get paid per view." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #F4EDE1;
+    --ink: #121212;
+    --ink-soft: #44413c;
+    --line: #e3d9c8;
+    --blue: #1f6fe3;
+    --green: #1c9c4d;
+    --yellow: #f5b40e;
+    --orange: #f26a1b;
+    --red: #e8362b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3, .brand-word { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+
+  /* ===== Logo ===== */
+  .logo { display: flex; align-items: flex-end; gap: 12px; }
+  .bars { display: flex; align-items: flex-end; gap: 4px; height: 38px; }
+  .bars span { width: 9px; border-radius: 2px 2px 0 0; display: block; }
+  .bars span:nth-child(1){height:42%;background:var(--blue);}
+  .bars span:nth-child(2){height:60%;background:var(--green);}
+  .bars span:nth-child(3){height:74%;background:var(--yellow);}
+  .bars span:nth-child(4){height:88%;background:var(--orange);}
+  .bars span:nth-child(5){height:100%;background:var(--red);}
+  .brand-word { font-weight: 900; font-size: 1.5rem; line-height: 0.92; text-transform: lowercase; }
+
+  /* ===== Nav ===== */
+  nav { padding: 22px 0; }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .btn {
+    display: inline-block; background: var(--ink); color: var(--cream);
+    font-weight: 700; font-family: 'Space Grotesk', sans-serif; text-decoration: none;
+    padding: 13px 26px; border-radius: 999px; font-size: 0.95rem;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-lg { padding: 18px 40px; font-size: 1.1rem; }
+
+  /* ===== Hero ===== */
+  .hero { padding: 30px 0 50px; text-align: center; }
+  .eyebrow {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 18px;
+  }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 900; line-height: 1.02; }
+  .hero h1 .grad {
+    background: linear-gradient(90deg,var(--blue),var(--green),var(--yellow),var(--orange),var(--red));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero p.sub { font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: var(--ink-soft); max-width: 620px; margin: 22px auto 30px; }
+
+  /* ===== Loom ===== */
+  .video {
+    position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden;
+    background: #1c1b19; border: 1px solid var(--line); margin: 8px auto 0; box-shadow: 0 24px 60px -28px rgba(0,0,0,.5);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .video iframe { width: 100%; height: 100%; border: 0; }
+  .video .placeholder { color: #b9b3a8; text-align: center; font-family: 'Space Grotesk'; font-weight: 700; }
+  .video .placeholder small { display:block; font-family:'Inter'; font-weight:400; color:#7a756c; margin-top:8px; font-size:.85rem; }
+  .play { width: 64px; height: 64px; border-radius: 50%; background: var(--red); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .play::after { content:''; border-left: 20px solid #fff; border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 5px; }
+
+  /* ===== Proof bar ===== */
+  .proof { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.35); }
+  .proof .wrap { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; padding: 34px 24px; text-align: center; }
+  .proof .num { font-family: 'Space Grotesk'; font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1; }
+  .proof .lbl { font-size: 0.85rem; color: var(--ink-soft); margin-top: 8px; text-transform: uppercase; letter-spacing: .08em; }
+
+  /* ===== Sections ===== */
+  section.block { padding: 64px 0; }
+  .tag { font-family:'Space Grotesk'; font-weight:700; letter-spacing:.16em; text-transform:uppercase; font-size:.75rem; color:var(--red); margin-bottom:14px; }
+  h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 900; line-height: 1.08; }
+  .block p.lead { font-size: 1.1rem; color: var(--ink-soft); margin-top: 16px; max-width: 640px; }
+
+  /* who we are */
+  .who { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
+  .who .card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px; }
+  .who .card h3 { font-size:1rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); margin-bottom:14px; }
+  .who .card ul { list-style:none; }
+  .who .card li { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--line); font-size:.95rem; }
+  .who .card li:last-child { border-bottom:0; }
+  .who .card li b { font-family:'Space Grotesk'; }
+
+  /* logos */
+  .logos { display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; }
+  .logos span { background:#fff; border:1px solid var(--line); border-radius:999px; padding:9px 18px; font-weight:600; font-size:.9rem; }
+
+  /* steps + perks */
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:36px; }
+  .cell { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px; }
+  .cell .ic { width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:900;color:#fff;font-size:1.2rem;margin-bottom:16px; }
+  .cell h3 { font-size:1.15rem; margin-bottom:8px; }
+  .cell p { font-size:.95rem; color:var(--ink-soft); }
+  .c1{background:var(--blue);}.c2{background:var(--orange);}.c3{background:var(--green);}
+  .c4{background:var(--red);}.c5{background:var(--yellow);color:var(--ink)!important;}.c6{background:var(--ink);}
+
+  /* faq */
+  .faq details { background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin-bottom:12px; }
+  .faq summary { font-family:'Space Grotesk'; font-weight:700; font-size:1.05rem; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:'+'; font-size:1.5rem; color:var(--red); }
+  .faq details[open] summary::after { content:'\2013'; }
+  .faq p { margin-top:12px; color:var(--ink-soft); }
+
+  /* final cta */
+  .final { text-align:center; background:var(--ink); color:var(--cream); border-radius:24px; padding:60px 30px; margin:20px 0 70px; }
+  .final h2 { color:#fff; }
+  .final p { color:#c9c3b8; max-width:520px; margin:16px auto 30px; }
+  .final .btn { background:var(--cream); color:var(--ink); }
+  .final .bars { justify-content:center; margin:0 auto 26px; }
+
+  footer { border-top:1px solid var(--line); padding:30px 0; text-align:center; color:var(--ink-soft); font-size:.85rem; }
+
+  @media (max-width: 720px) {
+    .who { grid-template-columns:1fr; }
+    .grid3 { grid-template-columns:1fr; }
+    .proof .wrap { grid-template-columns:1fr; gap:28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">
+      <div class="brand-word">broadcast<br>house</div>
+      <div class="bars"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <a href="https://whop.com/broadcast-house" class="btn">Join the team</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Content. Reach. Distribution.</div>
+    <h1>Get paid to <span class="grad">clip</span> for brands people actually know.</h1>
+    <p class="sub">Broadcast House turns long-form content into viral short-form. We're bringing on editors to clip for our roster and get paid per view. No cold outreach. No finding clients. Just clip and earn.</p>
+    <a href="https://whop.com/broadcast-house" class="btn btn-lg">Join the team &rarr;</a>
+
+    <div style="margin-top:46px;">
+      <div class="video">
+        <!-- REPLACE this placeholder div with your Loom embed iframe:
+             <iframe src="https://www.loom.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
+        <div class="placeholder">
+          <div class="play"></div>
+          Loom walkthrough goes here
+          <small>Drop your Loom embed code in index.html where marked</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="proof">
+  <div class="wrap">
+    <div>
+      <div class="num">10.5M+</div>
+      <div class="lbl">Views generated for clients</div>
+    </div>
+    <div>
+      <div class="num">120+</div>
+      <div class="lbl">Viral posts driven (5K+)</div>
+    </div>
+    <div>
+      <div class="num">15+</div>
+      <div class="lbl">Brands &amp; creators served</div>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap" style="max-width:720px;">
+    <div class="tag">Who you'd be clipping for</div>
+    <h2>Run by the team behind Creator Tide.</h2>
+    <p class="lead">I'm Jye. For the last few years I've run Creator Tide, a personal-brand content agency. We've taken founders and brands from zero to millions of views, on purpose, with a repeatable system. Broadcast House is the clipping arm of that, and we need editors.</p>
+    <div class="logos">
+      <span>Gretta van Riel</span><span>Puresport</span><span>NS Builders</span>
+      <span>Dog Farm Days</span><span>Brent Capel</span><span>Trip A Deal</span>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="background:rgba(255,255,255,.35);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="tag">How it works</div>
+    <h2>Three steps to your first payout.</h2>
+    <div class="grid3">
+      <div class="cell">
+        <div class="ic c4">1</div>
+        <h3>Join the Whop</h3>
+        <p>Get inside Broadcast House, watch the course, and grab the source footage for active campaigns.</p>
+      </div>
+      <div class="cell">
+        <div class="ic c5">2</div>
+        <h3>Clip &amp; post</h3>
+        <p>Cut clips our way, publish them, and tag them so every view is tracked back to you.</p>
+      </div>
+      <div class="cell">
+        <div class="ic c6">3</div>
+        <h3>Get paid</h3>
+        <p>Views are counted, payouts go out on schedule. Stack campaigns and your earnings compound.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block faq">
+  <div class="wrap" style="max-width:760px;">
+    <div class="tag">Questions</div>
+    <h2 style="margin-bottom:30px;">Before you join.</h2>
+    <details>
+      <summary>Do I need to know how to edit?</summary>
+      <p>Helps, but no. A full clipping course is built into the Whop that walks you through exactly how we cut clips that perform, plus the templates and style guide we use on real campaigns. If you can follow a tutorial and put in reps, you can do this.</p>
+    </details>
+    <details>
+      <summary>Do I need to show my face?</summary>
+      <p>No. You're clipping existing footage from our brands and creators. You never have to film yourself or be on camera.</p>
+    </details>
+    <details>
+      <summary>What do I need to get started?</summary>
+      <p>An editing setup you're comfortable with, a phone or computer to post from, and the willingness to put in volume. Everything else is inside.</p>
+    </details>
+    <details>
+      <summary>How and when do I get paid?</summary>
+      <p>You're paid based on the views your clips generate, tracked per campaign and paid out on a set schedule. Full terms are in the editor handbook once you're in.</p>
+    </details>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="final">
+    <div class="bars"><span></span><span></span><span></span><span></span><span></span></div>
+    <h2>Ready to clip?</h2>
+    <p>We're onboarding a small group of editors right now. Get in, watch the course, and start clipping for real brands this week.</p>
+    <a href="https://whop.com/broadcast-house" class="btn btn-lg">Join Broadcast House &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Broadcast House &middot; Content. Reach. Distribution. &middot; Brisbane, AU</div>
+</footer>
+
+</body>
+</html>
