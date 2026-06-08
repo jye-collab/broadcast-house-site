@@ -75,7 +75,7 @@
     background: #1c1b19; border: 1px solid var(--line); margin: 8px auto 0; box-shadow: 0 24px 60px -28px rgba(0,0,0,.5);
     display: flex; align-items: center; justify-content: center;
   }
-  .video iframe { width: 100%; height: 100%; border: 0; }
+  .video iframe, .video video { width: 100%; height: 100%; border: 0; display: block; object-fit: cover; }
   .video .placeholder { color: #b9b3a8; text-align: center; font-family: 'Space Grotesk'; font-weight: 700; }
   .video .placeholder small { display:block; font-family:'Inter'; font-weight:400; color:#7a756c; margin-top:8px; font-size:.85rem; }
   .play { width: 64px; height: 64px; border-radius: 50%; background: var(--red); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; }
@@ -162,13 +162,9 @@
 
     <div style="margin-top:46px;">
       <div class="video">
-        <!-- REPLACE this placeholder div with your Loom embed iframe:
-             <iframe src="https://www.loom.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
-        <div class="placeholder">
-          <div class="play"></div>
-          Loom walkthrough goes here
-          <small>Drop your Loom embed code in index.html where marked</small>
-        </div>
+        <video controls preload="metadata" playsinline poster="media/vsl_poster.jpg">
+          <source src="media/vsl.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </div>
